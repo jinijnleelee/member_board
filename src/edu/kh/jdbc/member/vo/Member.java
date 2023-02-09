@@ -25,6 +25,16 @@ public class Member {
 		this.memberGender = memberGender;
 		
 	}
+	
+	
+	public Member(String memberId, String memberName, 
+			String memberGender ) {
+		
+		this.memberId = memberId;
+		this.memberName = memberName;
+		this.memberGender = memberGender;
+		
+	}
 
 	public Member(int memberNo, String memberId, String memberName, String memberGender,
 			String enrollDate) {
