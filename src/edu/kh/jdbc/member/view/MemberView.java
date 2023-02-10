@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import static edu.kh.jdbc.main.view.MainView.*;
 import edu.kh.jdbc.board.view.BoardView;
 import edu.kh.jdbc.main.model.dao.MainDAO;
 import edu.kh.jdbc.member.dao.MemberDAO;
@@ -50,9 +51,9 @@ public class MemberView {
 					
 					case 1:  selectMyInfo(); break; //로그인
 					case 2: selectAll(); break; //회원가입
-//					case 3: updateMember(); break; //회원가입
-//					case 4: updatePw(); break; //회원가입
-//					case 5: secession()  break; //회원가입
+					case 3: updateMember(); break; //회원가입
+					case 4: updatePw(); break; //회원가입
+					case 5: secession();  break; //회원가입
 					
 					default:
 						System.out.println("메뉴에 작성된 번호만 입력해주세요");
@@ -103,6 +104,105 @@ public class MemberView {
 		
 		
 	}
+private void secession() {
+	
+	System.out.println("회원탈퇴");
+	
+	try {
+		
+		
+		System.out.println("비번 입력 :");
+		String memberPw = sc.next();
+		
+		while(true) {
+			System.out.println("정말 탈퇴하시겠습니까? (y/n) :");
+			char ch = sc.next().toUpperCase().charAt(0);
+			
+			if(ch =='Y') {
+				//서비스호출후 결과반환
+				int result = service.secession(memberPw, loginMember.getMemberNo());
+													//비번 ,회원번호
+				if(result > 0 ) {
+					
+					System.out.println("탈퇴되었습니다");
+					
+					input = o;
+					loginMember = null;
+				}else {
+					System.out.println("비밀벊 일치하지 않음");
+				}
+				
+				break;
+			}else if(ch =='N') {
+				System.out.println("취소되었습니다");
+				break;
+			}else {
+				System.out.println("Y또는 N만 입력해주세요");
+			}
+		}
+	}catch(Exception e) {
+		System.out.println("예외발생");
+		
+	}
+}
+
+private void updatePw() {
+	
+	
+	
+	
+	System.out.println("비밀번호 변경 ");
+	try {
+		System.out.println("현재 비밀번호:  ");
+		String curenPw = sc.next();
+		
+		String newPw1 = null;
+		String newPw2 = null;
+		
+		while(true) {
+			System.out.println("새 비밀번호");
+			newPw1 = sc.next();
+			
+			System.out.println("새 비밀번호");
+			newPw2 = sc.next();
+			
+			if(newPw1.equals(newPw2)) {
+				break;
+			}else {
+				System.out.println("새 비밀번호가 일치하지 않습니다");
+			}
+		}
+		int result = service.u
+		
+	
+		
+		
+		
+	}catch(Exception e) {
+		System.out.println("비밀번호 변경 중 예외");
+		e.printStackTrace();
+		
+	}
+	
+}
+
+
+prea
+
+
+
+
+
+
+
+
+private void updateMember() {
+	
+	
+	
+	
+	
+}
 private List<Member> memberList selectAll() {
 	
 	try {

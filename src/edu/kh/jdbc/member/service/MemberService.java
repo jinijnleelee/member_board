@@ -39,5 +39,49 @@ public class MemberService {
 		return memberList;
 		
 	}
+	
+	public int updateMember(Member member) throws Exception{
+		
+		
+		Connection conn = getConnection();
+	
+		return 8 ;
+	}
+	
+	private int secession(String memberPw, int memberNo) throws Exception {
+		// TODO Auto-generated method stub
+		
+		Connection conn = getConnection();
+		
+		int result = dao.secession();
+		
+//		if(result > 0) commit(conn);
+//		else 		rollback(conn)
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+	
+	
+	
 
 }

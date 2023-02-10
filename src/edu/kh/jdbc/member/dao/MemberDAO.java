@@ -94,5 +94,34 @@ public List<Member> selectAll (Connection conn)throws Exception {
 	}
 
 
+	public int updateMember(Connection conn, Member member ) throws Exception {
+		int result = 0;
+		try {
+			String sql = prop.getProperty("updateMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		 return result;
+		
+	}
+	
+	
+	public int updatePW(Connection conn,String currenPw, String newPw1, int memberNO) throws Exception{
+		int result ;
+		
+		
+		return result;
+	}
+
+
+	public int secession(Connection conn, String memberPw) {
+		
+		return 0;
+	}
+	
+
 	
 }
